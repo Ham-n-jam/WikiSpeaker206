@@ -7,21 +7,27 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menus.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menus.PicsAndNameMenuController">
    <children>
-      <Text layoutX="123.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Number] audio files(s) will be included in the Creation." textAlignment="CENTER" wrappingWidth="253.306640625">
+      <Text fx:id="topText" layoutX="123.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Number] audio files(s) will be included in the Creation." textAlignment="CENTER" wrappingWidth="253.306640625">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text layoutX="109.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type in the number of images to search on Flickr (0 - 10):" textAlignment="CENTER" wrappingWidth="288.390625">
+      <Text fx:id="middleText" layoutX="109.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type in the number of images to search on Flickr (0 - 10):" textAlignment="CENTER" wrappingWidth="288.390625">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField layoutX="37.0" layoutY="204.0" prefHeight="26.0" prefWidth="300.0" />
-      <Button layoutX="356.0" layoutY="204.0" mnemonicParsing="false" text="Add to Creation" />
-      <Text fill="#3c3c3c" layoutX="20.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 3: Add images to the slideshow in the Creation" />
+      <TextField fx:id="searchTextArea" layoutX="37.0" layoutY="204.0" prefHeight="26.0" prefWidth="300.0" />
+      <Button layoutX="356.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleActionButton" text="Add to Creation" />
+      <Text fill="#3c3c3c" layoutX="20.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 3: Add images to the slideshow in the Creation">
+         <font>
+            <Font size="9.0" />
+         </font></Text>
       <ProgressIndicator layoutX="452.0" layoutY="358.0" prefHeight="26.0" prefWidth="28.0" visible="false" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleMainMenuButton" text="Main menu" />
+      <Button fx:id="newCreationButton" disable="true" layoutX="149.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleNewCreationButton" prefHeight="26.0" prefWidth="202.0" text="Make another Creation" visible="false" />
+      <ProgressIndicator fx:id="loadingWheel" layoutX="432.0" layoutY="331.0" visible="false" />
    </children>
 </AnchorPane>

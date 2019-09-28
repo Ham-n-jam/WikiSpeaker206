@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menus.VideoPlayerController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="500.0">
+         <children>
+            <Text fx:id="text" layoutX="176.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Media playback" wrappingWidth="284.7816162109375">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Button fx:id="creationListButton" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleCreationListButton" text="&lt; Creation List" />
+            <Button fx:id="muteButton" layoutX="24.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleMuteButton" text="Mute" />
+            <Button fx:id="playPauseButton" layoutX="206.0" layoutY="360.0" mnemonicParsing="false" onAction="#handlePlayPauseButton" text="Play/Pause" />
+            <Button fx:id="backButton" layoutX="145.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleBackButton" text="&lt;&lt;" />
+            <Button fx:id="fowardButton" layoutX="318.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleFowardButton" text="&gt;&gt;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

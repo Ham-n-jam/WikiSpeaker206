@@ -16,7 +16,7 @@ public class HomeController extends Controller {
     @FXML
     private void handleCreateButton(){
         //Go to create menu
-        changeScene("/menus/CreateMenu.fxml");
+        changeScene("/menus/PicsAndNameMenu.fxml");
     }
 
     @FXML
