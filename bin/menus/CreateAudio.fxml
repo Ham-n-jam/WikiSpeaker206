@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menus.CreateAudioController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox maxHeight="20.0" prefHeight="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleMainMenuButton" text="Main menu" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Highlight text to add to Creation">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <children>
+                  <VBox prefHeight="319.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select a voice to use:">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Text>
+                        <ChoiceBox fx:id="voiceList" prefHeight="26.0" prefWidth="320.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </ChoiceBox>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Highlight up to 40 words:">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextArea fx:id="wikiText" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="278.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="70.0" prefWidth="145.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Text fx:id="creationName" fill="#727272" rotate="-20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATION NAME">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="creatingAudio" rotate="-20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creating audio...">
+                                 <fill>
+                                    <LinearGradient endX="0.48557692307692313" endY="1.0">
+                                       <stops>
+                                          <Stop color="#cc1b40" />
+                                          <Stop color="#cf6908" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="previewButton" mnemonicParsing="false" onAction="#handlePreviewButton" prefHeight="50.0" prefWidth="116.0" text="Preview highlighted">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="10.0" />
+                           </VBox.margin>
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleAddAudioButton" prefHeight="50.0" prefWidth="116.0" text="Add to Creation">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <ProgressIndicator maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="20.0" visible="false" HBox.hgrow="NEVER">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </ProgressIndicator>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" maxHeight="10.0" prefHeight="10.0" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Text fill="#4d4d4d" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 2: Choose audio files to create">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Text>
+                  <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="nextStepButton" disable="true" mnemonicParsing="false" onAction="#handleNextStepButton" text="Next step &gt;" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

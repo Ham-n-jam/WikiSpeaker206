@@ -64,7 +64,12 @@ public class WikiSpeaker extends Application {
 
     	doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./TempFiles >/dev/null"));
     	doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./Creations >/dev/null"));
-    	launch(args);
+    	doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./TempImages >/dev/null"));
+    	
+    	/*Flickr_Download a = new Flickr_Download();
+    	a.download("banana", 7);*/
+    	
+       	launch(args);
     }
 
 }

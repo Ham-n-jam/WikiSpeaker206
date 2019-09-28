@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menus.HomeController">
+   <children>
+      <Text layoutX="123.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[Number] audio files(s) will be included in the Creation." textAlignment="CENTER" wrappingWidth="253.306640625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="109.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type in the number of images to search on Flickr (0 - 10):" textAlignment="CENTER" wrappingWidth="288.390625">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField layoutX="37.0" layoutY="204.0" prefHeight="26.0" prefWidth="300.0" />
+      <Button layoutX="356.0" layoutY="204.0" mnemonicParsing="false" text="Add to Creation" />
+      <Text fill="#3c3c3c" layoutX="20.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 3: Add images to the slideshow in the Creation" />
+      <ProgressIndicator layoutX="452.0" layoutY="358.0" prefHeight="26.0" prefWidth="28.0" visible="false" />
+   </children>
+</AnchorPane>
