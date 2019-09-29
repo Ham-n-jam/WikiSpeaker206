@@ -26,7 +26,7 @@
             <Font size="9.0" />
          </font></Text>
       <ProgressIndicator layoutX="452.0" layoutY="358.0" prefHeight="26.0" prefWidth="28.0" visible="false" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleMainMenuButton" text="Main menu" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleMainMenuButton" text="&lt; Main menu" />
       <Button fx:id="newCreationButton" disable="true" layoutX="149.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleNewCreationButton" prefHeight="26.0" prefWidth="202.0" text="Make another Creation" visible="false" />
       <ProgressIndicator fx:id="loadingWheel" layoutX="432.0" layoutY="331.0" visible="false" />
       <Button fx:id="overwriteButton" disable="true" layoutX="388.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleOverwriteButton" text="Overwrite!" visible="false" />

@@ -54,7 +54,13 @@ public class PicsAndNameMenuController extends Controller {
     	//Action button has different functionality depending on the currentStep variable
     	
     	if(currentStep.equals(PicsAndNameMenuController.Step.enterPicsNumber)) {
-    		numImages = Integer.parseInt(searchTextArea.getText());
+    		
+    		try {
+    			numImages = Integer.parseInt(searchTextArea.getText());
+    		}catch(NumberFormatException e) {
+    			numImages = -1;
+    		}
+    		
     		//Check the number is valid
     		if((numImages < 1)||(numImages > 10)) {
     			Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -110,7 +116,8 @@ public class PicsAndNameMenuController extends Controller {
 
         //Start creating Creation
         topText.setText("Creating Creation...");
-        
+        middleText.setText("");
+        loadingWheel.setVisible(true);
 
         Thread thread = new Thread(new CreateCreationInBackground(this));
         thread.start();
@@ -124,6 +131,7 @@ public class PicsAndNameMenuController extends Controller {
     }
     
     public void finishedMakingCreation() {
+    	loadingWheel.setVisible(false);
     	topText.setText("Creation created!");
     	middleText.setText("");
     	newCreationButton.setVisible(true);
@@ -154,7 +162,6 @@ public class PicsAndNameMenuController extends Controller {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                	//Check images are actually in TempImages folder AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
                 	controller.flickrDownloadComplete(); 
                 }
             });

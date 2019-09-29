@@ -15,11 +15,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menus.CreateAudioController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="400.0" prefWidth="902.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox maxHeight="20.0" prefHeight="20.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handleMainMenuButton" text="Main menu" />
+                  <Button mnemonicParsing="false" onAction="#handleMainMenuButton" text="&lt; Main menu" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Highlight text to add to Creation">
                      <font>
                         <Font size="18.0" />
@@ -35,7 +35,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
                <children>
-                  <VBox prefHeight="319.0" prefWidth="160.0" HBox.hgrow="ALWAYS">
+                  <VBox prefHeight="319.0" HBox.hgrow="ALWAYS">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select a voice to use:">
                            <font>
@@ -62,12 +62,12 @@
                         </TextArea>
                      </children>
                   </VBox>
-                  <VBox alignment="BOTTOM_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="278.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                  <VBox alignment="BOTTOM_CENTER" maxWidth="120.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="278.0" prefWidth="120.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
                      <children>
-                        <VBox alignment="CENTER" prefHeight="70.0" prefWidth="145.0" VBox.vgrow="ALWAYS">
+                        <VBox alignment="CENTER" prefHeight="70.0" prefWidth="150.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Text fx:id="creationName" fill="#727272" rotate="-20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CREATION NAME">
                                  <font>
@@ -108,11 +108,6 @@
                                     <Insets />
                                  </HBox.margin>
                               </Button>
-                              <ProgressIndicator maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" prefWidth="20.0" visible="false" HBox.hgrow="NEVER">
-                                 <HBox.margin>
-                                    <Insets left="5.0" />
-                                 </HBox.margin>
-                              </ProgressIndicator>
                            </children>
                         </HBox>
                      </children>
@@ -131,6 +126,11 @@
                   </Text>
                   <HBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
                      <children>
+                        <ProgressIndicator fx:id="progressIndicator" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="20.0" visible="false" HBox.hgrow="NEVER">
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" top="2.0" />
+                           </HBox.margin>
+                        </ProgressIndicator>
                         <Button fx:id="nextStepButton" disable="true" mnemonicParsing="false" onAction="#handleNextStepButton" text="Next step &gt;" />
                      </children>
                   </HBox>

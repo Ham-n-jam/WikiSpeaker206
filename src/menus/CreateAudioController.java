@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
@@ -23,6 +24,7 @@ public class CreateAudioController extends Controller {
 	@FXML protected Button addAudioButton;
 	@FXML protected TextArea wikiText;
 	@FXML protected ChoiceBox<String> voiceList;
+	@FXML protected ProgressIndicator progressIndicator;
 	private String _selectedVoice;
 	static protected int _audioCount;
 	protected String highlightedText;
@@ -122,7 +124,9 @@ public class CreateAudioController extends Controller {
 			alert.showAndWait();
 		}else {
 			//Get highlighted text and save it using the selected festival voice
+			progressIndicator.setVisible(true);
 			addAudioButton.setDisable(true);
+			nextStepButton.setDisable(true);
 			Thread thread = new Thread(new SaveAudioInBackground(this));
 			thread.start();
 
@@ -216,15 +220,21 @@ public class CreateAudioController extends Controller {
 				@Override
 				public void run() {
 					controller.addAudioButton.setDisable(false);
+					progressIndicator.setVisible(false);
 					if(error) {
 						controller.creatingAudio.setText("Audio file not created.");
 						controller.cannotPlayTextError();
 
 					}else {
 						controller.creatingAudio.setText("Audio file " + CreateAudioController._audioCount + " created!");
-						nextStepButton.setDisable(false);
 					}
+					
+					
+					if(_audioCount > 0) {
+						nextStepButton.setDisable(false);
 
+					}					
+					
 				}
 			});
 		}
@@ -233,13 +243,6 @@ public class CreateAudioController extends Controller {
 
 
 	private class CombineAudioInBackground extends Task<Void> {
-
-		private CreateAudioController controller;
-
-		public CombineAudioInBackground(CreateAudioController controller) {
-			this.controller = controller;
-		}
-
 
 		@Override
 		protected Void call() throws Exception {
@@ -288,7 +291,7 @@ public class CreateAudioController extends Controller {
 	@FXML
 	public void handleNextStepButton() {
 		creatingAudio.setText("Combining audio files...");
-		Thread thread = new Thread(new CombineAudioInBackground(this));
+		Thread thread = new Thread(new CombineAudioInBackground());
 		thread.start();
 	}
 
