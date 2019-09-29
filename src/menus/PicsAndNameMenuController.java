@@ -85,7 +85,6 @@ public class PicsAndNameMenuController extends Controller {
                 handleOverwriteButton();//Disable overwrite button and start making creation
             }    		
     	}else {
-    		System.out.println("invalid step");
     	}
     	
     	
@@ -99,11 +98,11 @@ public class PicsAndNameMenuController extends Controller {
     @FXML
     public void handleOverwriteButton(){
         //delete any existing Creation that uses the same fileName
+    	
     	String file = "./Creations/" + fileName + ".mp4";
     	ProcessBuilder deleteCreation = new ProcessBuilder("bash", "-c", "rm -f " + file);
     	WikiSpeaker.doProcess(deleteCreation);
 
-		System.out.println("handleOverwrite");
 
         currentStep = PicsAndNameMenuController.Step.creatingCreation;
         overwriteButton.setVisible(false);
@@ -112,7 +111,6 @@ public class PicsAndNameMenuController extends Controller {
         //Start creating Creation
         topText.setText("Creating Creation...");
         
-		System.out.println("starting thread");
 
         Thread thread = new Thread(new CreateCreationInBackground(this));
         thread.start();
@@ -178,24 +176,20 @@ public class PicsAndNameMenuController extends Controller {
     	@Override
 		protected Void call() throws Exception {
     		//Make MP3 file
-        	controller.topText.setText("Combining images...");
-        	controller.middleText.setText("");
+        	//controller.topText.setText("Combining images...");
+        	//controller.middleText.setText("");
         	creationCreator creator = new creationCreator();
          	
-    		System.out.println("Gogogogo");
-
         	
         	creator.combineImages(creator.audioDuration(), numImages);
-        	controller.topText.setText("Combining audio and video...");
+        	//controller.topText.setText("Combining audio and video...");
         	creator.combine();
         	
-    		System.out.println("vvvvvvvvvvvvvvvvvv");
-
         	
-        	controller.topText.setText("Adding subtitle...");
+        	//controller.topText.setText("Adding subtitle...");
         	creator.addTerm(CreateMenuController._search);
         	
-        	controller.topText.setText("Finalising Creation...");
+        	//controller.topText.setText("Finalising Creation...");
         	creator.createFinal(fileName);
 			
         	return null;
