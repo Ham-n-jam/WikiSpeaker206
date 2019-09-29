@@ -57,7 +57,7 @@ public class creationCreator {
 		
 		
 		String combineImageFiles = "ffmpeg -r " + ((double)number/duration)
-				+ " -pattern_type glob -i './TempImages/*.jpg' -c:v libx264 -r 30 -pix_fmt yuv420p -vf scale=400:200 './TempFiles/combinedImages.mp4'";
+				+ " -pattern_type glob -i './TempImages/*.jpg' -c:v libx264 -r 30 -pix_fmt yuv420p -vf scale=800:800 './TempFiles/combinedImages.mp4'";
 		ProcessBuilder combineImages = new ProcessBuilder("bash", "-c", combineImageFiles);
 		WikiSpeaker.doProcess(combineImages);
 		
@@ -85,7 +85,7 @@ public class creationCreator {
 		
 		// add keyword to the video file
 		String addKeywordFile = "ffmpeg -i './TempFiles/combine.mkv' -vf drawtext=\"fontfile=./font.ttf: \\\n"
-				+ "text='"+ term +"': fontcolor=white: fontsize=24: box=1: boxcolor=black@0.5: \\\n"
+				+ "text='"+ term +"': fontcolor=white: fontsize=100: box=1: boxcolor=black@0.5: \\\n"
 				+ "boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/2\" -codec:a copy './TempFiles/final.mkv'";
 		ProcessBuilder addKeyword = new ProcessBuilder("bash", "-c", addKeywordFile);
 		WikiSpeaker.doProcess(addKeyword);

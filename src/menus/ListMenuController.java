@@ -17,7 +17,7 @@ public class ListMenuController extends Controller {
     @FXML Button deleteButton;
     private boolean confirmDelete;
     private String previousSelection;
-    private String _selection;
+    protected static String _selection;
     
     @FXML
     public void handleMainMenuButton(){
@@ -33,18 +33,17 @@ public class ListMenuController extends Controller {
             deleteButton.setDisable(true);
         }else {
         	_selection = selection;
-        	Thread thread = new Thread(new playVidInBackground());
-        	thread.start();
+        	changeScene("/menus/VideoPlayer.fxml");
         	
         }
     }
     
    
-    
+   /* 
     /**
      * Plays the video on a worker thread using ffplay
      *
-     */
+     *
     private class playVidInBackground extends Task<Void> {
 
         @Override
@@ -56,9 +55,13 @@ public class ListMenuController extends Controller {
         }
 
     }
-    
-    
-   
+    *
+    **/
+/*    
+    public String getSelection() {
+    	return _selection;
+    }
+   */
     
     
     @FXML
