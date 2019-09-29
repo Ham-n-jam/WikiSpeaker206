@@ -25,6 +25,17 @@ public class CreateMenuController extends Controller {
         //Back to main menu
         changeScene("/menus/Home.fxml");
     }
+    
+    @FXML
+    public void initialize() {
+        //Delete files from folders
+    	
+    	ProcessBuilder deleteTemp = new ProcessBuilder("bash", "-c", "rm -f ./TempFiles/*");
+    	WikiSpeaker.doProcess(deleteTemp);
+    	ProcessBuilder deleteImages = new ProcessBuilder("bash", "-c", "rm -f ./TempImages/*");
+    	WikiSpeaker.doProcess(deleteImages);
+    	
+    }
 
     /**
      This method handles the main textArea and uses the entered text in different ways when the enter key is hit

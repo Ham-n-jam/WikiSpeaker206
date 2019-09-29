@@ -100,7 +100,7 @@
                               <Insets bottom="20.0" top="10.0" />
                            </VBox.margin>
                            <children>
-                              <Button mnemonicParsing="false" onAction="#handleAddAudioButton" prefHeight="50.0" prefWidth="116.0" text="Add to Creation">
+                              <Button fx:id="addAudioButton" mnemonicParsing="false" onAction="#handleAddAudioButton" prefHeight="50.0" prefWidth="116.0" text="Add to Creation">
                                  <font>
                                     <Font size="10.0" />
                                  </font>

@@ -20,7 +20,7 @@
          </font>
       </Text>
       <TextField fx:id="searchTextArea" layoutX="37.0" layoutY="204.0" prefHeight="26.0" prefWidth="300.0" />
-      <Button layoutX="356.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleActionButton" text="Add to Creation" />
+      <Button fx:id="actionButton" layoutX="356.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleActionButton" text="Add to Creation" />
       <Text fill="#3c3c3c" layoutX="20.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 3: Add images to the slideshow in the Creation">
          <font>
             <Font size="9.0" />
@@ -29,5 +29,6 @@
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleMainMenuButton" text="Main menu" />
       <Button fx:id="newCreationButton" disable="true" layoutX="149.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleNewCreationButton" prefHeight="26.0" prefWidth="202.0" text="Make another Creation" visible="false" />
       <ProgressIndicator fx:id="loadingWheel" layoutX="432.0" layoutY="331.0" visible="false" />
+      <Button fx:id="overwriteButton" disable="true" layoutX="388.0" layoutY="240.0" mnemonicParsing="false" onAction="#handleOverwriteButton" text="Overwrite!" visible="false" />
    </children>
 </AnchorPane>
