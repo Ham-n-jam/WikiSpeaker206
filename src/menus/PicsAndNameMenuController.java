@@ -71,6 +71,7 @@ public class PicsAndNameMenuController extends Controller {
     		}else {	
 	    		currentStep = PicsAndNameMenuController.Step.waitForDownload;
 	    		//Start downloading pics from flickr
+	        	loadingWheel.setVisible(true);
 	    		Thread thread = new Thread(new flickrInBackground(this));
 		        thread.start();
     		}
@@ -151,7 +152,6 @@ public class PicsAndNameMenuController extends Controller {
         @Override
         protected Void call() throws Exception {
         	//Download images here
-        	loadingWheel.setVisible(true);
         	Flickr_Download downloader = new Flickr_Download();
         	downloader.download(CreateMenuController._search, numImages);
         	return null;

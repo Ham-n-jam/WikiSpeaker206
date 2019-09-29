@@ -95,6 +95,7 @@ public class CreateAudioController extends Controller {
 			alert.setContentText("Please highlight words before continuing.");
 			alert.showAndWait();
 		}else {
+			creatingAudio.setText("Previewing audio...");
 			Thread thread = new Thread(new CreateAudioInBackground(this));
 			thread.start();
 		}
@@ -127,6 +128,7 @@ public class CreateAudioController extends Controller {
 			progressIndicator.setVisible(true);
 			addAudioButton.setDisable(true);
 			nextStepButton.setDisable(true);
+			creatingAudio.setText("Creating audio...");
 			Thread thread = new Thread(new SaveAudioInBackground(this));
 			thread.start();
 
@@ -150,7 +152,7 @@ public class CreateAudioController extends Controller {
 		protected Void call() throws Exception {
 			error = false;
 			//Make MP3 file
-			controller.creatingAudio.setText("Previewing audio...");
+			
 
 			String cmd = "echo \"(voice_" + _selectedVoice + ") (SayText \\\"" + highlightedText + "\\\")\" | festival 2>&1";
 			ProcessBuilder previewAudio = new ProcessBuilder("bash", "-c", cmd);
@@ -199,7 +201,6 @@ public class CreateAudioController extends Controller {
 		protected Void call() throws Exception {
 			error = false;
 			//Make MP3 file
-			controller.creatingAudio.setText("Creating audio...");
 
 			String cmd = "echo \"(voice_" + _selectedVoice + ") (utt.save.wave (SayText \\\"" + highlightedText + "\\\") \\\"./TempFiles/tempAudio" + CreateAudioController._audioCount + ".wav\\\" 'riff)\" | festival 2>&1";
 			ProcessBuilder previewAudio = new ProcessBuilder("bash", "-c", cmd);

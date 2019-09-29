@@ -21,7 +21,11 @@ public class WikiSpeaker extends Application {
     public void start(Stage mainStage) throws IOException {
         _mainStage = mainStage;
         _mainStage.setTitle("Wiki Speaker");
-
+        
+        doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./TempFiles >/dev/null"));
+    	doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./Creations >/dev/null"));
+    	doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./TempImages >/dev/null"));
+        
         //Load Home page
         Controller controller = new Controller();
         controller.changeScene("/menus/Home.fxml");
@@ -59,18 +63,20 @@ public class WikiSpeaker extends Application {
     
     
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
     	//Make directories for storing files made
 
     	doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./TempFiles >/dev/null"));
     	doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./Creations >/dev/null"));
     	doProcess(new ProcessBuilder("/bin/bash", "-c", "mkdir -p ./TempImages >/dev/null"));
     	
-    	/*Flickr_Download a = new Flickr_Download();
-    	a.download("banana", 7);*/
+    	Flickr_Download a = new Flickr_Download();
+    	a.download("banana", 7);
     	
-       	launch(args);
+      	launch(args);
+    
+    	
     }
-
+*/
 }
 
